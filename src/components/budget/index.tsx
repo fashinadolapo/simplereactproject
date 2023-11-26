@@ -1,17 +1,16 @@
-import { Box, CircularProgress, CircularProgressLabel, Flex, HStack, Heading, Input, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from "@chakra-ui/react"
+import { Box, CircularProgress, CircularProgressLabel, Flex, HStack, Heading, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from "@chakra-ui/react"
 import {ReactComponent as Naira} from '../../svg/naira.svg'
 import {ReactComponent as OptionsIcon} from '../../svg/optionsmenu.svg'
 import {ReactComponent as FoodAndDrink} from '../../svg/fooddrinks.svg'
 import {ReactComponent as PiggyVest} from '../../svg/piggyvest.svg'
 import IconWrapper from "../customComponents/iconWrapper"
 import CategoryBreakdownItems from "./categoryBreakDownItems"
-import { useState } from "react"
 
 
 
 const Budget = () => {
 
-    const [thisMonthPerc, setthisMonthPerc] = useState<number>(49);
+    const thisMonthPerc = 49;
 
     return (
         <Box width={{base: '100%', sm: '100%', md: '100%', lg: '900px' }} padding={'20px'}>

@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
 import SideBarItem from "./sideBarItem";
 import { ReactComponent as HomeIcon } from '../../svg/home.svg';
 import { ReactComponent as ReportsIcon } from '../../svg/report.svg';

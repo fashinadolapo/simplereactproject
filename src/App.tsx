@@ -1,17 +1,10 @@
-import * as React from "react"
+
 import {
   ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
   Grid,
   GridItem,
 } from "@chakra-ui/react"
 import { theme } from "./theme"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
 import Budget from "./components/budget"
 import SideBar from "./components/SideBar"
 
