@@ -66,5 +66,5 @@ jobs:
 
       - name: Expose Kubernetes service
         run: |
-          kubectl expose deployment my-react-app --type=NodePort --port=80
+          kubectl expose deployment my-nextjs-app --type=NodePort --port=80
           
