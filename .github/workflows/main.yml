@@ -1,4 +1,4 @@
-name: Build, Test, and Deploy
+name: Build, Test, and Deploy to minikube
 
 on:
   push:
@@ -39,8 +39,32 @@ jobs:
       - name: Scan with Trivy
         run: |
           trivy image --format table my-nextjs-app
+          
       - name: Push Docker image
         run: |
           docker tag my-nextjs-app ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
+
+      - name: Install Minikube
+        run: |
+          curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+          chmod +x minikube
+          sudo mkdir -p /usr/local/bin/
+          sudo install minikube /usr/local/bin/
+
+      - name: Start Minikube
+        run: |
+          minikube start --driver=docker
+
+      - name: Apply Kubernetes deployment
+        run: |
+          kubectl apply -f deployment.yaml
+
+      - name: Apply Kubernetes service
+        run: |
+          kubectl apply -f service.yaml
+
+      - name: Expose Kubernetes service
+        run: |
+          kubectl expose deployment my-react-app --type=NodePort --port=80
           
