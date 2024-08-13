@@ -62,7 +62,7 @@ jobs:
 
       - name: Apply Kubernetes service
         run: |
-          kubectl apply -f service.yaml
+          kubectl apply -f service.yml
 
       - name: Expose Kubernetes service
         run: |
