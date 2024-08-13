@@ -29,8 +29,8 @@ jobs:
 
       - name: Tag image
         run: |
-          #docker tag my-nextjs-app:latest ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
-          docker tag my-nextjs-app:latest ${{ secrets.DOCKER_USERNAME }}/my-react-app:v1
+          #docker tag my-nextjs-app:latest ${{ secrets.DOCKER_USERNAME }}/my-reanextjsct-app:latest
+          docker tag my-nextjs-app:latest ${{ secrets.DOCKER_USERNAME }}/my-nextjs-app:v1
       
       - name: Install Trivy
         run: |
@@ -42,8 +42,8 @@ jobs:
           
       - name: Push Docker image
         run: |
-          docker tag my-nextjs-app ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
+          docker tag my-nextjs-app ${{ secrets.DOCKER_USERNAME }}/my-nextjs-app:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/my-nextjs-app:latest
 
       - name: Install Minikube
         run: |
