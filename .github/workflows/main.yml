@@ -29,7 +29,7 @@ jobs:
 
       - name: Tag image
         run: |
-          #docker tag my-nextjs-app:latest ${{ secrets.DOCKER_USERNAME }}/my-reanextjsct-app:latest
+          #docker tag my-nextjs-app:latest ${{ secrets.DOCKER_USERNAME }}/my-nextjs-app:latest
           docker tag my-nextjs-app:latest ${{ secrets.DOCKER_USERNAME }}/my-nextjs-app:v1
       
       - name: Install Trivy
