@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: my-react-app
+        app: my-nextjs-app
     spec:
       containers:
       - name: my-nextjs-app
