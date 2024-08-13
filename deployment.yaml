@@ -13,7 +13,7 @@ spec:
         app: my-react-app
     spec:
       containers:
-      - name: my-react-app
+      - name: my-nextjs-app
         image: fashinadolapo/my-nextjs-app
         ports:
         - containerPort: 80
