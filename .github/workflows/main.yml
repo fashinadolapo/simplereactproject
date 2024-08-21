@@ -63,8 +63,5 @@ jobs:
       - name: Apply Kubernetes service
         run: |
           kubectl apply -f service.yml
-
-      - name: Expose Kubernetes service
-        run: |
-          kubectl expose deployment my-nextjs-app --type=NodePort --port=80
+    
           
