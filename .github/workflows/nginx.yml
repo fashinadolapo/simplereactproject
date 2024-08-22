@@ -47,4 +47,15 @@ jobs:
           rm -rf /var/www/html/*
           scp -r ./build-files/* /var/www/html/
           sudo service nginx restart
+
+    - name: Deploy
+      uses: actions/deploy@v1
+      with:
+        ssh-host: ${{ secrets.HOST }}
+        ssh-port: ${{ secrets.PORT }}
+        ssh-username: ${{ secrets.USER_NAME }}
+        ssh-password: ${{ secrets.PASSWORD }}
+        deploy-path: /var/www/html
+        local-path: ./build
+      
           
