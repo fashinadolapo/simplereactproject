@@ -6,7 +6,7 @@ on:
       - main
 jobs:
   build-and-deploy:
-    runs-on: devops
+    runs-on: self-hosted
 
     steps:
     - name: Checkout code
