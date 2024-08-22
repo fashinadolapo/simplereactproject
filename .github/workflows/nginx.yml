@@ -1,0 +1,34 @@
+name: Build and Deploy
+
+on: [push]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build project
+      run: |
+        npm install
+        npm run build
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-files
+        path: ./build
+
+    - name: Deploy to server
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER_NAME }}
+        password: ${{ secrets.PASSWORD }}
+        script: |
+          mkdir -p /var/www/html
+          rm -rf /var/www/html/*
+          scp -r ./build-files/* /var/www/html/
+          sudo service nginx restart
