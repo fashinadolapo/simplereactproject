@@ -1,7 +1,9 @@
 name: Build and Deploy
 
-on: [push]
-
+on:
+  push:
+    branches:
+      - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -21,6 +23,11 @@ jobs:
         name: build-files
         path: ./build
 
+    - name: Setup NGINX service for Linux/macOS/Windows
+  # You may pin to the exact commit or the version.
+  # uses: nyurik/action-setup-nginx@612ee9cb839ad727832cda16359452e7e14dd521
+      uses: nyurik/action-setup-nginx@v1.1
+          
     - name: Deploy to Nginx
       # uses: cross-the-world/ssh-scp-ssh-pipelines@78e864b4890087a58248ff39320406971ca88b89
       uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
@@ -28,7 +35,7 @@ jobs:
         # ssh remote host
         host: ${{ secrets.HOST }}
         # ssh remote port
-        port: 22 # optional, default is 22
+        port: ${{ secrets.PORT }} # optional
         # ssh remote user
         user: ${{ secrets.USER_NAME }}
         # ssh remote password
